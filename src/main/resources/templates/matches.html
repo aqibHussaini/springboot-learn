@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div >
+    <div class="shadow-lg">
+        <div class="">
+            <div class="card"  th:each="m : ${matchList}">
+                <div class="card-body text-center">
+                    <h6 th:text="${m.getTeamHeading()}"></h6>
+                     <a th:href="@{@{m.getMatchLink()}}">view</a>
+                    <p class="card-text" th:text="${m.getBattingTeam()}+'   '+${m.getBattingTeamScore()}"></p>
+                    <p class="card-text" th:text="${m.getBowlTeam()}+'   '+${m.getBowlTeamScore()}"></p>
+                    <h6 th:text="${m.getLiveText()}"></h6>
+                    <p th:text="'Venue ' + ${m.getMatchNumberVenue()}"></p>
+                    <p th:text=" ${m.getTextComplete()}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
